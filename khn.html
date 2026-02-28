@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Khanata 🌙</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Georgia, serif;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Background slideshow */
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+        transition: background-image 1.5s ease-in-out;
+    }
+
+    .overlay {
+        background: rgba(0,0,0,0.55);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .poem {
+        max-width: 650px;
+        background: rgba(0,0,0,0.4);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        line-height: 1.6;
+        font-size: 0.95rem; /* texte plus petit */
+    }
+
+    h1 {
+        font-weight: normal;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        font-size: 1.3rem;
+    }
+
+    button {
+        margin: 15px 10px 0;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    .yes {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .no {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    #response {
+        margin-top: 20px;
+        font-style: italic;
+        font-size: 1rem;
+    }
+
+    .signature {
+        margin-top: 20px;
+        opacity: 0.9;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="background" id="bg"></div>
+
+<div class="overlay">
+    <div class="poem">
+        <h1>🌺 À Khanata 🌺</h1>
+
+        <p>
+        Khanata, soleil discret et thé bien sucré,<br>
+        Moi j’ai parlé vite… cerveau déconnecté.<br>
+        Une erreur digne d’un taxi-car pressé,<br>
+        Qui oublie la sortie… et continue sans réfléchir.
+        </p>
+
+        <p>
+        Depuis, même Dakar semble un peu jaloux,<br>
+        Parce que ton sourire manque beaucoup.<br>
+        Une Khanata sans joie, franchement c’est étrange,<br>
+        Comme un thiéboudienne… sans sauce (oui ça dérange).
+        </p>
+
+        <p>
+        Je ne viens pas négocier avec de grands mots,<br>
+        Juste espérer revoir ton rire bientôt.<br>
+        Que la bonne humeur fasse doucement son retour,<br>
+        Comme le soleil qui gagne toujours.
+        </p>
+
+        <p class="signature">
+        — Celui qui essaie de se rattraper 😌
+        </p>
+
+        <div>
+            <p><strong>Tu me pardonnes ?</strong></p>
+            <button class="yes" onclick="yesAnswer()">Oui</button>
+            <button class="no" onclick="noAnswer()">Non</button>
+        </div>
+
+        <div id="response"></div>
+    </div>
+</div>
+
+<script>
+/* Réponses boutons */
+function yesAnswer() {
+    document.getElementById("response").textContent =
+        "Merci, magnifique haha 🌙";
+}
+
+function noAnswer() {
+    document.getElementById("response").textContent =
+        "Réponse impossible haha 😄";
+}
+
+/* Background slideshow — remplace les noms par tes images GitHub */
+const images = [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg"
+];
+
+let index = 0;
+const bg = document.getElementById("bg");
+
+function changeBackground() {
+    bg.style.backgroundImage = `url('${images[index]}')`;
+    index = (index + 1) % images.length;
+}
+
+changeBackground();
+setInterval(changeBackground, 5000); // change toutes les 5 secondes
+</script>
+
+</body>
+</html>
